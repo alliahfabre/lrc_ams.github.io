@@ -1,1 +1,87 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Booking Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+      <!-- Google Web Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" 
+      rel="stylesheet"/>
+
+      <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{asset("assets/kidkinder-1.0.0/css/style.min.css")}}" rel="stylesheet" />
+    <link href="{{asset("assets/kidkinder-1.0.0/css/booking.css")}}" rel="stylesheet"/>
+
+        <!-- Libraries Stylesheet -->
+        <link href="{{asset("assets/kidkinder-1.0.0/lib/owlcarousel/assets/owl.carousel.min.css")}}" rel="stylesheet" />
+        <link href="{{asset("assets/kidkinder-1.0.0/lib/lightbox/css/lightbox.min.css")}}" rel="stylesheet" />
+</head>
+<body>
+<div class="main-container">
+<h2>Appointment Booking Form</h2>
+
+<form id="bookingForm" action="#" method="post">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="course&year">Course and Year:</label>
+  <input type="text" id="course&year" name="course&year" required>
+
+  <label for="date">Date:</label>
+  <input type="date" id="date" name="date" required>
+
+  <label for="time">Time:</label>
+  <input type="time" id="time" name="time" required>
+
+  <label for="location">Location:</label>
+  <select id="location" name="location" required>
+    <option value="">Select Location</option>
+    <option value="Conference Room">Conference Room</option>
+    <option value="Discussion 1">Discussion 1</option>
+    <option value="Discussion 2">Discussion 2</option>
+    <option value="Innovative Room">Innovative Room</option>
+  </select>
+
+
+  <label for="purpose">Appointment Purpose:</label>
+  <input type="text" id="purpose" name="purpose" required>
+
+  <label for="participants">Participant Count:</label>
+  <input type="number" id="participants" name="participants" min="1" required>
+
+
+    <button class="submit">Book Appointment</button>
+    <button type="button" class="cancel" onlick="cancelForm()">Cancel</button>
+
+  
+
+
+</form>
+
+<script>
+  document.getElementById("bookingForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    // Handle form submission here
+    // You can submit the form data to a server or perform any other action
+    // For demonstration, we'll just log the form data to the console
+    const formData = new FormData(this);
+    const formObject = {};
+    formData.forEach((value, key) => {
+      formObject[key] = value;
+    });
+    console.log(formObject);
+  });
+
+  function cancelForm() {
+    document.getElementById("bookingForm").reset();
+  }
+</script>
+
+</body>
+</html>
